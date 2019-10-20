@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title> Régistration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="col-md-9 align-content-center container">
+        <div class="panel panel-default">
+          <div class="panel-heading"  tyle="text-align:center"> <h1> Registration</h1></div>
+           <div class="panel-body">
+           <form #imageForm=ngForm class="form">
+              <div class="panel-heading" style="text-align:center"> <h3> Information Administrateur</h3></div>
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <ion-item>
+                    <ion-input [(ngModel)]="registrUserData.username" type="text" name="username"  class="form-control"> </ion-input>
+                    </ion-item>
+                  </div>
+                  <div class="form-group col-lg-6">
+                     <ion-item>
+                     <ion-input [(ngModel)]="registrUserData.password" type="text" name="password" class="form-control"></ion-input>
+                    </ion-item>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="form-group ">
+                    <div class="col s8 offst-2">
+                        <div class="card-panel teal lighten-2">
+                            <h4 class="center white-text">
+                              Cliquer sur l'image pour choisir le votre
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="input-field col s12">
+                      <ion-item>
+                        <img [src]="imageUrl" style="width:250px ; height:200px">
+                        <ion-input  name="imageFile" type="file" #ImageFile accept="image/*" (change)="handleFileInput($event.target.files)"></ion-input>
+                      </ion-item>
+                      </div>
+                 </div>
+                 
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-lg-6">
+                  <ion-item> 
+                    <ion-input [(ngModel)]="registrUserData.prenom" type="text" name="prenom" class="form-control"> </ion-input>
+                  </ion-item>
+                  </div>
+    
+                <div class="form-group col-lg-6">
+                  <ion-item>
+                    <ion-input [(ngModel)]="registrUserData.nom" type="text" name="nom" class="form-control"> </ion-input>
+                  </ion-item>
+                  </div>
+            </div>        
+                
+            <div class="row">
+                <div class="form-group col-lg-6">
+                  <ion-item>
+                    <ion-input [(ngModel)]="registrUserData.contact" type="number" name="contact" class="form-control"></ion-input>
+                  </ion-item>
+                  </div>
+                <div class="form-group col-lg-6">
+                  <ion-item>
+                    <ion-input [(ngModel)]="registrUserData.cni" type="number" name="cni" class="form-control"> </ion-input>
+                  </ion-item>
+                  </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-6">
+                  <ion-item>
+                    <ion-input [(ngModel)]="registrUserData.adresse" type="text" name="adresse" class="form-control"></ion-input>
+                  </ion-item>
+                </div>
+                <div class="form-group col-lg-6">
+                  <ion-item>
+                    <ion-input [(ngModel)]="registrUserData.email" type="email" name="email" class="form-control"> </ion-input>
+                  </ion-item>
+                </div>
+            </div>     
+                  
+            <div class="panel-heading" style="text-align:center"> <h3> Informations Prestataire</h3></div>
+            <div class="row">
+                <div class="form-group col-lg-6">
+                  <ion-item>
+                    <ion-input [(ngModel)]="registrUserData.nomEntreprise" type="text" name="nomEntreprise" class="form-control"> </ion-input>
+                  </ion-item>
+                  </div>
+                <div class="form-group col-lg-6">
+                  <ion-item>
+                    <ion-input [(ngModel)]="registrUserData.prenom" type="text" name="prenom" class="form-control"></ion-input>
+                  </ion-item>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-6">
+                  <ion-item>
+                    <ion-input [(ngModel)]="registrUserData.nom" type="text" name="nom" class="form-control"></ion-input>
+                  </ion-item>
+                  </div>
+                <div class="form-group col-lg-6">
+                  <ion-item>
+                    <ion-input [(ngModel)]="registrUserData.contact" type="number" name="contact" class="form-control"></ion-input>
+                  </ion-item>
+                </div>
+            </div>      
+            
+            <div class="row">
+                <div class="form-group col-lg-6">
+                  <ion-item>
+                    <ion-input [(ngModel)]="registrUserData.cni" type="number" name="cni" class="form-control"></ion-input>
+                  </ion-item>
+                </div>
+                <div class="form-group col-lg-6">
+                  <ion-item>
+                    <ion-input [(ngModel)]="registrUserData.adresse" type="text" name="adresse" class="form-control"></ion-input>
+                  </ion-item>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-lg-6">
+                  <ion-item>
+                    <ion-input [(ngModel)]="registrUserData.email" type="email" name="email" class="form-control"></ion-input>
+                  </ion-item>
+                </div>
+    
+                <ion-button (click)="registerUser()" type="submit" class="btn btn-success">register</ion-button>
+            </div>
+                      
+           </form>
+          </div> 
+        </div>   
+        </div>
+</ion-content>
