@@ -26,13 +26,13 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.login();
+     // this.login();
     });
   }
 
-  login(){
+/*   login(){
     this.router.navigateByUrl('/login');
-  }
+  } */
  
 }
 

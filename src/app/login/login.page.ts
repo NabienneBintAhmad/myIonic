@@ -38,7 +38,7 @@ export class LoginPage  implements OnInit {
       return this.authentService.loggedIn ();
     }
   login() {
-    this.authentService.login(this.loginUserData)
+   this.authentService.login(this.loginUserData)
       .subscribe(
         resp => {
           window.confirm('Connexion réussie');
@@ -46,6 +46,13 @@ export class LoginPage  implements OnInit {
           console.log(resp);
           const jwt: any = resp.body;
           this.authentService.saveToken(jwt);
+          if(this.authentService.login(this.loginUserData)){
+            this.router.navigateByUrl('register');
+          }
+          else{
+            this.router.navigateByUrl('login');
+
+          }
           
         },
         err => {
