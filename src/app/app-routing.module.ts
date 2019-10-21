@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'depot', loadChildren: './depot/depot.module#DepotPageModule' },
   { path: 'compte', loadChildren: './compte/compte.module#ComptePageModule' },
   { path: 'allcompte', loadChildren: './allcompte/allcompte.module#AllcomptePageModule' },
+  { path: 'comptetravail', loadChildren: './comptetravail/comptetravail.module#ComptetravailPageModule' },
 
 ];
 
