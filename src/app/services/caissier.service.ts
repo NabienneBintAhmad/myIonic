@@ -5,8 +5,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class CaissierService {
   private endpoint = 'http://127.0.0.1:8000/api/caissier';
-  private endpoint1 = 'http://127.0.0.1:8000/api/listecaisssier';
-  private endpoint2 = 'http://127.0.0.1:8000/api/blockuser/{username}';
+  private endpoint1 = 'http://127.0.0.1:8000/api/listcaissier';
+  private endpoint2 = 'http://127.0.0.1:8000/api/bloquer';
   constructor(private httpClient: HttpClient) {}
   ajoutCaissier(formData) {
     const formData1: FormData = new FormData();

@@ -1,9 +1,74 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>user</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-title>Ajout user</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+    <div class="col-md-9 align-content-center container">
+        <div class="panel panel-default">
+          <div class="panel-heading" style="text-align:center"> <h1> Ajout User Prestataire</h1></div>
+           <div class="panel-body">
+           <form #imageForm=ngForm class="form" >
+               <div class="row">
+               <div class="form-group col-lg-6">
+               <ion-input [(ngModel)]="userData.username" type="text" name="username"  class="form-control" placeholder="Username"></ion-input>
+             </div>
+             <div class="form-group col-lg-6">
+                <ion-input [(ngModel)]="userData.password" type="text" name="password" class="form-control"Password placeholder="Password"></ion-input>
+              </div>
+          </div>
+      
+          
+            <div class="form-group col-lg-6">
+                <div class="col s8 offst-2">
+                    <div class="card-panel teal lighten-2">
+                        <h4 class="center white-text">
+                            Cliquer sur l'image pour  en ajouter
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-lg-6">
+                <div class="input-field col s12">
+                    <ion-img [src]="imageUrl" style="width:250px ; height:200px"></ion-img>
+                    <ion-input  name="imageFile" type="file" #ImageFile accept="image/*" (change)="handleFileInput($event.target.files)"></ion-input>
+                </div>
+             </div>
+      
+             <div class="row">
+              <div class="form-group col-lg-6">
+                  <ion-input [(ngModel)]="userData.prenom" type="text" name="prenom" class="form-control" placeholder="Prenom"></ion-input>
+                </div>
+                <div class="form-group col-lg-6">
+                    <ion-input [(ngModel)]="userData.nom" type="text" name="nom" class="form-control" placeholder="Nom"></ion-input>
+              </div>
+              </div>
+              
+              <div class="row">
+                  <div class="form-group col-lg-6">
+                      <ion-input [(ngModel)]="userData.contact" type="number" name="contact" class="form-control" placeholder="Contact"></ion-input>
+                  </div>
+                  <div class="form-group  col-lg-6">
+                      <ion-input [(ngModel)]="userData.cni" type="number" name="cni" class="form-control" placeholder="Cni"></ion-input>
+                  </div>
+              </div>
+      
+              <div class="row">
+                  <div class="form-group col-lg-6">
+                      <ion-input [(ngModel)]="userData.adresse" type="text" name="adresse" class="form-control" placeholder="Adresse"></ion-input>
+                  </div>
+                  <div class="form-group col-lg-6">
+                      <ion-input [(ngModel)]="userData.email" type="email" name="email" class="form-control" placeholder="Email"></ion-input>
+                  </div>
+              </div> 
+                 
+              <ion-button expand="block" (click)="ajoutUser()" type="submit" class="btn btn-success">Ajouter</ion-button>
+           </form>
+          </div> 
+        </div>   
+        </div>
+      
+      
 </ion-content>
