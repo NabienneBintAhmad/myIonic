@@ -9,6 +9,9 @@ const routes: Routes = [
   { path: 'admin', loadChildren: './admin/admin.module#AdminPageModule' },
   { path: 'caissier', loadChildren: './caissier/caissier.module#CaissierPageModule' },
   { path: 'user', loadChildren: './user/user.module#UserPageModule' },
+  { path: 'depot', loadChildren: './depot/depot.module#DepotPageModule' },
+  { path: 'compte', loadChildren: './compte/compte.module#ComptePageModule' },
+  { path: 'allcompte', loadChildren: './allcompte/allcompte.module#AllcomptePageModule' },
 
 ];
 

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title colore="secondary">compte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="col-md-6 align-content-center container">
+        <div class="panel panel-default">
+          <div class="panel-heading"> <h2 style="text-align: center"> Ajout Compte</h2> </div>
+           <div class="panel-body">
+           <form class="Form" >
+            <div class="row">
+            <div class="form-group col-lg-8">
+               <ion-input [(ngModel)]="compteData.matricule"  type="text" name="matricule" placeholder="19-NOOPrX" class="form-control" placeholder="Matricule Prestataire"></ion-input>
+            </div>
+            </div>
+              <ion-button expand="block" (click)="compte()" type="submit" class="btn btn-success">Ajouter</ion-button>
+           </form>
+          </div>
+        </div>   
+        </div>
+      
+</ion-content>
