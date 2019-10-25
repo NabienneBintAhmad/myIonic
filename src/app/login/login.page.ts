@@ -12,6 +12,7 @@ export class LoginPage  implements OnInit {
     constructor(private authentService: AuthentService , private router: Router) { }
   
     ngOnInit(){
+     // this.router.navigateByUrl('/menu/home')
     }
      isSuperadmin() {
       return this.authentService.isSuperadmin();
@@ -42,15 +43,18 @@ export class LoginPage  implements OnInit {
       .subscribe(
         resp => {
           window.confirm('Connexion réussie');
-          this.router.navigateByUrl('/register');
+          //this.router.navigateByUrl('/register');
           console.log(resp);
           const jwt: any = resp.body;
           this.authentService.saveToken(jwt);
-          if(this.authentService.login(this.loginUserData)){
-            this.router.navigateByUrl('register');
+          if(this.isUser()){
+            this.router.navigateByUrl('/menu/home');
           }
+       else if(this.isAdmin()){
+        this.router.navigateByUrl('/menu/user');
+       }
           else{
-            this.router.navigateByUrl('login');
+            this.router.navigateByUrl('/login');
 
           }
           

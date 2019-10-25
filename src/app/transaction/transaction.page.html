@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>Transaction: envoie/retrait</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card >
+        <img src="/assets/img/halal.jpg" alt="" />
+        <ion-card-header>
+          <ion-card-subtitle>Bienvenue à halal transaction.</ion-card-subtitle>
+          <ion-card-title>  مرحبا بكم في المعاملات الحلال
+            
+            </ion-card-title>
+        </ion-card-header>
+    </ion-card>
+<ion-card>
+  <div class="ion-padding">
+    <ion-segment  [(ngModel)]="relationship" color="primary" >
+      <ion-segment-button id="choix1"  value="envoie">
+        Envoie
+      </ion-segment-button>
+      <ion-segment-button id="choix2"  value="retrait">
+        Retrait
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+
+
+<form>
+    <div [(ngSwitch)]="relationship"> 
+        <ion-list *ngSwitchCase="'envoie'"> 
+
+            <ion-item id="envoyeurNomComplet">
+                 <ion-input [(ngModel)]="envoieData.envoyeurNomComplet"  type="text" name="envoyeurNomComplet"  class="form-control" placeholder="Nom Envoyeur"></ion-input>
+            </ion-item>
+
+            <ion-item id="envoyeurCni">
+                <ion-input [(ngModel)]="envoieData.envoyeurCni" type="number" name="envoyeurCni" class="form-control" placeholder="Cni Envoyeur"></ion-input>
+            </ion-item>
+   
+          <ion-item id="recepteurNomComplet">
+            <ion-input [(ngModel)]="envoieData.recepteurNomComplet" type="text" name="recepteurNomComplet" class="form-control" placeholder="Nom Recepteur"></ion-input>
+          </ion-item>
+
+          <ion-item id="montant">
+            <ion-input [(ngModel)]="envoieData.montant" (keyup)="infotarif(envoieData.montant)"  type="number" name="montant" class="form-control" placeholder="Montant"></ion-input>
+          </ion-item>
+
+          <ion-item id="tarif" *ngIf="tarif">
+           
+            <ion-label>les frais sont de:  {{tarif.prix}} fcfa </ion-label>
+          </ion-item>
+          <ion-button id="envoie" expand="block" (click)="envoie()" type="submit" class="btn btn-success">envoyer</ion-button>
+       
+        </ion-list>
+     </div>
+     <div [(ngSwitch)]="relationship"> 
+       <ion-list *ngSwitchCase="'retrait'">
+           <ion-item id="code">
+              <ion-input [(ngModel)]="retraitData.code"  (keyup)="inforetraitt(retraitData.code)"  type="number" name="code"  class="form-control" placeholder="Code de retrait"></ion-input>
+            </ion-item>
+            <ion-item id="inforetrait" *ngIf="inforetrait">
+                <ion-label>code d'envoie: {{inforetrait.code}}</ion-label>
+              </ion-item>
+              <ion-item id="inforetrait" *ngIf="inforetrait">
+                  <ion-label>Statut: {{inforetrait.statut}}</ion-label>
+                </ion-item>
+                <ion-item id="inforetrait" *ngIf="inforetrait">
+                    <ion-label>Montant: {{inforetrait.montant}} fcfa</ion-label>
+                  </ion-item>
+            <ion-item id="envoyeurNomComplet1">
+               <ion-input [(ngModel)]="retraitData.envoyeurNomComplet" type="text" name="envoyeurNomComplet" class="form-control" placeholder="Nom Envoyeur"></ion-input>
+             </ion-item>
+             <ion-item id="inforetrait" *ngIf="inforetrait">
+                <ion-label>Envoyeur: {{inforetrait.envoyeurNomComplet}}</ion-label>
+              </ion-item>
+             <ion-item id="recepteurNomComplet1">
+               <ion-input [(ngModel)]="retraitData.recepteurNomComplet" type="text" name="recepteurNomComplet" class="form-control" placeholder="Nom du destinataire"></ion-input>
+             </ion-item>
+             <ion-item id="inforetrait" *ngIf="inforetrait">
+                <ion-label>Recepteur: {{inforetrait.recepteurNomComplet}}</ion-label>
+              </ion-item>
+
+             <ion-item id="recepteurCni">
+               <ion-input [(ngModel)]="retraitData.recepteurCni" type="number" name="recepteurCni" class="form-control" placeholder="Cni du recepteur"></ion-input>
+             </ion-item>
+             <ion-button id="retrait" expand="block" (click)="retrait()" type="submit" class="btn btn-success">Retirer</ion-button>
+            </ion-list>
+          </div>
+              </form>
+
+</ion-card>
+   
+</ion-content>

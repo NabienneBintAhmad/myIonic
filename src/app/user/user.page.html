@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="primary">
     <ion-title>Ajout user</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,13 +10,16 @@
         <div class="panel panel-default">
           <div class="panel-heading" style="text-align:center"> <h1> Ajout User Prestataire</h1></div>
            <div class="panel-body">
-           <form #imageForm=ngForm class="form" >
+           <form #imageForm=ngForm class="form" id="myform" >
                <div class="row">
                <div class="form-group col-lg-6">
-               <ion-input [(ngModel)]="userData.username" type="text" name="username"  class="form-control" placeholder="Username"></ion-input>
+               <ion-input [(ngModel)]="userData.username" type="text" name="username" id="username"  class="form-control" placeholder="Username" ></ion-input>
              </div>
              <div class="form-group col-lg-6">
-                <ion-input [(ngModel)]="userData.password" type="text" name="password" class="form-control"Password placeholder="Password"></ion-input>
+                <ion-input [(ngModel)]="userData.password" type="password" name="password" id="password" class="form-control"Password placeholder="Password" require></ion-input>
+              </div>
+              <div class="form-group col-lg-6">
+                <ion-input [(ngModel)]="userData.confirm_password" type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Confirmer le password" require></ion-input>
               </div>
           </div>
       
@@ -39,28 +42,28 @@
       
              <div class="row">
               <div class="form-group col-lg-6">
-                  <ion-input [(ngModel)]="userData.prenom" type="text" name="prenom" class="form-control" placeholder="Prenom"></ion-input>
+                  <ion-input [(ngModel)]="userData.prenom" type="text" name="prenom" id="prenom" class="form-control" placeholder="Prenom" ></ion-input>
                 </div>
                 <div class="form-group col-lg-6">
-                    <ion-input [(ngModel)]="userData.nom" type="text" name="nom" class="form-control" placeholder="Nom"></ion-input>
+                    <ion-input [(ngModel)]="userData.nom" type="text" name="nom" id="nom" class="form-control" placeholder="Nom" ></ion-input>
               </div>
               </div>
               
               <div class="row">
                   <div class="form-group col-lg-6">
-                      <ion-input [(ngModel)]="userData.contact" type="number" name="contact" class="form-control" placeholder="Contact"></ion-input>
+                      <ion-input [(ngModel)]="userData.contact" type="number" name="contact" id="contact" class="form-control" placeholder="Contact" ></ion-input>
                   </div>
                   <div class="form-group  col-lg-6">
-                      <ion-input [(ngModel)]="userData.cni" type="number" name="cni" class="form-control" placeholder="Cni"></ion-input>
+                      <ion-input [(ngModel)]="userData.cni" type="number" name="cni" id="cni" class="form-control" placeholder="Cni" ></ion-input>
                   </div>
               </div>
       
               <div class="row">
                   <div class="form-group col-lg-6">
-                      <ion-input [(ngModel)]="userData.adresse" type="text" name="adresse" class="form-control" placeholder="Adresse"></ion-input>
+                      <ion-input [(ngModel)]="userData.adresse" type="text" name="adresse" id="adresse" class="form-control" placeholder="Adresse" ></ion-input>
                   </div>
                   <div class="form-group col-lg-6">
-                      <ion-input [(ngModel)]="userData.email" type="email" name="email" class="form-control" placeholder="Email"></ion-input>
+                      <ion-input [(ngModel)]="userData.email" type="email" name="email" id="email" class="form-control" placeholder="Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"></ion-input>
                   </div>
               </div> 
                  
@@ -69,6 +72,67 @@
           </div> 
         </div>   
         </div>
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js" type="e54a2035a6305bb19d62897d-text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js" type="e54a2035a6305bb19d62897d-text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js" type="e54a2035a6305bb19d62897d-text/javascript"></script>
+<script type="e54a2035a6305bb19d62897d-text/javascript">
+		// just for the demos, avoids form submit
+		jQuery.validator.setDefaults({
+		  	debug: true,
+		  	success:  function(label){
+        		label.attr('id', 'valid');
+   		 	},
+		});
+		$( "#myform" ).validate({
+		  	rules: {
+			    password: "required",
+		    	comfirm_password: {
+		      		equalTo: "#password"
+		    	}
+		  	},
+		  	messages: {
+		  		username: {
+		  			required: "SVP entrez un username"
+		  		},
+		  		nom: {
+		  			required: "SVP entrez un nom"
+                  },
+                  prenom: {
+                    required: "SVP entrez un prenom"
+                },
+               adresse: {
+                    required: "SVP entrez un adresse"
+                },
+		  		email: {
+		  			required: "SVP entrez un email"
+		  		},
+		  		password: {
+	  				required: "SVP entrez un mot de passe"
+                  },
+                  ,
+		  		comfirm_password: {
+		  			required: "SVP entrez un mot de passe",
+		      		equalTo: "mot de passe incorrecte"
+		    	}
+                  contact: {
+                    required: "SVP entrez un contact"
+                },
+                cni: {
+                    required: "SVP entrez un cn"
+                }
+		  	}
+		});
+	</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="e54a2035a6305bb19d62897d-text/javascript"></script>
+<script type="e54a2035a6305bb19d62897d-text/javascript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/95c75768/cloudflare-static/rocket-loader.min.js" data-cf-settings="e54a2035a6305bb19d62897d-|49" defer=""></script>
       
       
 </ion-content>

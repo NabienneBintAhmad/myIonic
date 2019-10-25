@@ -1,12 +1,39 @@
 <ion-header>
-  <ion-toolbar color="success">
-    <ion-title>
-      N@bienne
-    </ion-title>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title> H@lal Transaction </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-  </div>
+    <ion-card class="welcome-card">
+        <img src="/assets/img/halal.jpg" alt="" />
+        <ion-card-header>
+          <ion-card-subtitle>Bienvenue à halal transaction.</ion-card-subtitle>
+          <ion-card-title>  مرحبا بكم في المعاملات الحلال
+            
+            </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>
+              Marhaban bikum fi almueamalat alhilal.
+              Un opérateur de transfer d'afert d'argent fiable,rapide et sain . 
+              Halal répond aux critères de transfert d'argent et respectent les normes de confidentialité de données.          
+          </p>
+        </ion-card-content>
+      </ion-card>
+      <ion-footer>
+        <ion-toolbar>
+            <ion-row>
+              <ion-col>
+                <ion-button color="primary" expand="full"  routerLink="/menu/transaction" routerLinkActive="router-link-active" >Transaction</ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button color="primary" expand="full" routerLink="/menu/historique" >Historique</ion-button>
+              </ion-col>
+            </ion-row>
+        </ion-toolbar>
+      </ion-footer>
 </ion-content>

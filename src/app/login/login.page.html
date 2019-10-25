@@ -1,12 +1,18 @@
 <ion-header>
-  <ion-toolbar color="secondary" text-align="center">
-    <ion-title>Authentication</ion-title>
+  <ion-toolbar text-align="center" color="primary">
+    <ion-title>H@lal Transaction</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-
+    <ion-card class="welcome-card">
+        <ion-card-header color="primary">
+            <ion-card-subtitle>Bienvenue à halal transaction.</ion-card-subtitle>
+            <ion-card-title  text-align="center">  Authentification
+              
+              </ion-card-title>
+          </ion-card-header>
+    <ion-card-content>
     <form >
     <ion-item > 
        <ion-input [(ngModel)]="loginUserData.username" placeholder="Username" type="text" name="username"  class="form-control"></ion-input>
@@ -14,7 +20,8 @@
     <ion-item>         
      <ion-input [(ngModel)]="loginUserData.password" placeholder="Password" type="password" name="password" class="form-control"></ion-input>
      </ion-item>   
-           <ion-button expand="block" (click)="login(loginUserData)" type="submit" class="btn btn-success">Login</ion-button>
+           <ion-button expand="block" (click)="login(loginUserData)" type="submit" class="btn btn-success"  fill="outline" class="btnLogin">Login</ion-button>
         </form>
-
+      </ion-card-content>
+      </ion-card>
 </ion-content>

@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   constructor(private authservice: AuthentService, private router: Router) {}
   ngOnInit(){
-   // this.router.navigateByUrl('/register');
+ this.router.navigateByUrl('/login');
   }
   isSuperadmin() {
     return this.authservice.isSuperadmin();

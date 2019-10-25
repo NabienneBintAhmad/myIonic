@@ -1,0 +1,59 @@
+
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Liste des envoies</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      <ion-card >
+          <img src="/assets/img/halal.jpg" alt="" />
+          <ion-card-header>
+            <ion-card-subtitle>Bienvenue à halal transaction.</ion-card-subtitle>
+            <ion-card-title>  مرحبا بكم في المعاملات الحلال
+              
+              </ion-card-title>
+          </ion-card-header>
+      </ion-card>
+  <ion-card class="welcome-card">
+    <div class="ion-padding">
+      <ion-segment  [(ngModel)]="relationship" color="primary" >
+        <ion-segment-button id="choix1"  value="periode">
+          Période
+        </ion-segment-button>
+        <ion-segment-button id="choix2"  value="detail">
+          Détail
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  
+  
+  
+  <form>
+      <div [(ngSwitch)]="relationship"> 
+          <ion-list *ngSwitchCase="'periode'"> 
+
+            <ion-item>
+                <ion-label>Date de début</ion-label>
+                <ion-label>Date de fin</ion-label>
+            </ion-item>
+              <ion-item >
+                  <ion-input [(ngModel)]="envoieData.debut"  type="date" name="debut"  class="form-control" ></ion-input>
+ 
+                   <ion-input [(ngModel)]="envoieData.fin"  type="date" name="fin"  class="form-control" ></ion-input>
+              </ion-item>
+              <ion-button expand="block" (click)="infoenvoie()" type="submit" class="btn btn-success">Afficher</ion-button>
+      
+           </ion-list>
+       </div>
+      <div [(ngSwitch)]="relationship"> 
+        <ion-list *ngSwitchCase="'detail'">
+             
+      </ion-list>
+      </div>
+   </form>
+  
+  </ion-card>
+     
+  </ion-content>
+  
