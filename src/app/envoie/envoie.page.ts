@@ -7,18 +7,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./envoie.page.scss'],
 })
 export class EnvoiePage implements OnInit {
-  envoieData = {};
+  envoieData=[];
+  envoieDetail=[];
+  Transaction: any;
+  Envoi=[];
   constructor(private histoService: HistoriqueService , private router: Router) { }
 
   ngOnInit() {
+    
   }
   infoenvoie() {
     this.histoService.infoenvoie(this.envoieData)
       .subscribe(
-        data => {
-         window.confirm('Voulez vous voir la liste de la période indiquer?');
-         console.log(data);
-
+        res => {
+          this.envoieData = res
+          console.log(this.envoieData)
         },
         err => {
           window.confirm('Aucune transaction n\'a été faite pendant cette période!');
@@ -27,4 +30,6 @@ export class EnvoiePage implements OnInit {
 
       );
   }
+
+
 }

@@ -32,28 +32,58 @@
   <form>
       <div [(ngSwitch)]="relationship"> 
           <ion-list *ngSwitchCase="'periode'"> 
-
+ 
             <ion-item>
                 <ion-label>Date de début</ion-label>
                 <ion-label>Date de fin</ion-label>
             </ion-item>
+            
               <ion-item >
                   <ion-input [(ngModel)]="envoieData.debut"  type="date" name="debut"  class="form-control" ></ion-input>
  
                    <ion-input [(ngModel)]="envoieData.fin"  type="date" name="fin"  class="form-control" ></ion-input>
               </ion-item>
               <ion-button expand="block" (click)="infoenvoie()" type="submit" class="btn btn-success">Afficher</ion-button>
-      
+              <ion-card>
+                  <ion-list *ngIf="envoieData">
+                    <ion-item *ngFor="let r of envoieData">
+                      <ion-label>
+                        <h1>* {{r.montant}} fcfa</h1>
+                       <h4>{{r.date|date:"yyyy-MM-dd'T'HH:mm:ss"}}</h4>
+                        <h4>Commission: {{r.comEnv}} fcfa</h4>
+                      </ion-label>
+                    </ion-item>
+                  </ion-list>
+                </ion-card>
            </ion-list>
        </div>
+      </form>
+     
+
+   <form> 
       <div [(ngSwitch)]="relationship"> 
         <ion-list *ngSwitchCase="'detail'">
-             
-      </ion-list>
+          <ion-card-content>
+            
+            <ion-list *ngIf="envoieData">
+                <ion-item *ngFor="let r of envoieData">
+                  <ion-label>
+                    <p>Montant: {{r.montant}} fcfa</p>
+                    <p>Date: {{r.date|date:"yyyy-MM-dd'T'HH:mm:ss"}}</p>
+                    <p>CNI envoyeur: {{r.envoyeurCni}}</p>
+                    <p>Envoyeur: {{r.envoyeurNomComplet}}</p>
+                    <p>Commission: {{r.comEnv}} fcfa: soit 10% du tarif </p>
+                    <p>Matricule: {{r.multiservice.matricule}} </p>
+                  </ion-label>
+                  
+                </ion-item>
+              </ion-list>
+          </ion-card-content>
+        </ion-list>
       </div>
-   </form>
+  </form>
   
-  </ion-card>
-     
+  
+    </ion-card> 
   </ion-content>
   

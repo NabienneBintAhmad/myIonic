@@ -664,6 +664,139 @@ const findCheckedOption = (el, tagName) => {
 
 
 
+/***/ }),
+
+/***/ "./src/app/services/compte.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/services/compte.service.ts ***!
+  \********************************************/
+/*! exports provided: CompteService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CompteService", function() { return CompteService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let CompteService = class CompteService {
+    constructor(httpClient) {
+        this.httpClient = httpClient;
+        this.host = 'http://127.0.0.1:8000/api/compte';
+        this.host1 = 'http://127.0.0.1:8000/api/mycount';
+        this.host2 = 'http://127.0.0.1:8000/api/listcompte';
+        this.host3 = 'http://127.0.0.1:8000/api/comptetravail';
+    }
+    compte(formData) {
+        const formData1 = new FormData();
+        formData1.append('matricule', formData.matricule);
+        console.log(formData);
+        return this.httpClient.post(this.host, formData1, { observe: 'response' });
+    }
+    comptetravail(formData) {
+        const formData1 = new FormData();
+        formData1.append('username', formData.username);
+        formData1.append('numero', formData.numero);
+        console.log(formData);
+        return this.httpClient.post(this.host3, formData1, { observe: 'response' });
+    }
+    getComptelist() {
+        return this.httpClient.get(this.host1);
+    }
+    getCompteliste() {
+        return this.httpClient.get(this.host2);
+    }
+};
+CompteService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+CompteService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+], CompteService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/historique.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/services/historique.service.ts ***!
+  \************************************************/
+/*! exports provided: HistoriqueService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoriqueService", function() { return HistoriqueService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let HistoriqueService = class HistoriqueService {
+    constructor(httpClient) {
+        this.httpClient = httpClient;
+        this.endpoint = 'http://127.0.0.1:8000/api/listerperiodeEnvoie';
+        this.endpoint1 = 'http://127.0.0.1:8000/api/listerperiodeRetrait';
+        this.endpoint2 = 'http://127.0.0.1:8000/api/listerperiodeEnvoieAdmin';
+        this.endpoint3 = 'http://127.0.0.1:8000/api/listerperiodeRetraitAdmin';
+    }
+    infoenvoie(data) {
+        console.log(data);
+        const envoieData = {
+            debut: data.debut,
+            fin: data.fin
+        };
+        console.log(envoieData);
+        return this.httpClient.post(this.endpoint, envoieData);
+    }
+    inforetrait(data) {
+        console.log(data);
+        const retraitData = {
+            debut: data.debut,
+            fin: data.fin
+        };
+        console.log(retraitData);
+        return this.httpClient.post(this.endpoint1, retraitData);
+    }
+    infoenvoieadmin(data) {
+        console.log(data);
+        const envoieData = {
+            debut: data.debut,
+            fin: data.fin
+        };
+        console.log(envoieData);
+        return this.httpClient.post(this.endpoint2, envoieData);
+    }
+    inforetraitadmin(data) {
+        console.log(data);
+        const retraitData = {
+            debut: data.debut,
+            fin: data.fin
+        };
+        console.log(retraitData);
+        return this.httpClient.post(this.endpoint3, retraitData);
+    }
+};
+HistoriqueService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+HistoriqueService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+], HistoriqueService);
+
+
+
 /***/ })
 
 }]);

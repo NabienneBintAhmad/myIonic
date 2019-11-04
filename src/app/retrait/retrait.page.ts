@@ -7,7 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./retrait.page.scss'],
 })
 export class RetraitPage implements OnInit {
-  retraitData = {};
+  retraitData = [];
+  Transaction: any;
+  Retrait=[];
+  Envoi=[];
   constructor(private histoService: HistoriqueService , private router: Router) { }
 
   ngOnInit() {
@@ -15,9 +18,9 @@ export class RetraitPage implements OnInit {
   inforetrait() {
     this.histoService.inforetrait(this.retraitData)
       .subscribe(
-        data => {
-         window.confirm('Voulez vous voir la liste de la période indiquer?');
-         console.log(data);
+        res => {
+          this.retraitData = res
+          console.log(this.retraitData)
 
         },
         err => {

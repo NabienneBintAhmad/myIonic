@@ -1,27 +1,54 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class HistoriqueService {
   private endpoint = 'http://127.0.0.1:8000/api/listerperiodeEnvoie';
   private endpoint1 = 'http://127.0.0.1:8000/api/listerperiodeRetrait';
+  private endpoint2 = 'http://127.0.0.1:8000/api/listerperiodeEnvoieAdmin';
+  private endpoint3 = 'http://127.0.0.1:8000/api/listerperiodeRetraitAdmin';
 
   constructor(private httpClient: HttpClient) { }
 
-  infoenvoie(formData) {
-    const formData1: FormData = new FormData();
-    formData1.append('debut', formData.debut);
-    formData1.append('fin', formData.fin);
-    console.log(formData);
-    return this.httpClient.post<any>(this.endpoint, formData1, {observe: 'response'});
+  infoenvoie(data):Observable<any> {
+    console.log(data)
+    const envoieData={
+      debut:data.debut,
+      fin: data.fin
+    }
+    console.log(envoieData)
+    return this.httpClient.post<any>(this.endpoint, envoieData);
     }
 
-    inforetrait(formData) {
-      const formData1: FormData = new FormData();
-      formData1.append('debut', formData.debut);
-      formData1.append('fin', formData.fin);
-      console.log(formData);
-      return this.httpClient.post<any>(this.endpoint1, formData1, {observe: 'response'});
+    inforetrait(data):Observable<any> {
+      console.log(data)
+      const retraitData={
+        debut:data.debut,
+        fin: data.fin
       }
+      console.log(retraitData)
+      return this.httpClient.post<any>(this.endpoint1, retraitData);
+      }
+
+      infoenvoieadmin(data):Observable<any> {
+        console.log(data)
+        const envoieData={
+          debut:data.debut,
+          fin: data.fin
+        }
+        console.log(envoieData)
+        return this.httpClient.post<any>(this.endpoint2, envoieData);
+        }
+    
+        inforetraitadmin(data):Observable<any> {
+          console.log(data)
+          const retraitData={
+            debut:data.debut,
+            fin: data.fin
+          }
+          console.log(retraitData)
+          return this.httpClient.post<any>(this.endpoint3, retraitData);
+          }
 }

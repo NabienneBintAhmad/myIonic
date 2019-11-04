@@ -1,0 +1,94 @@
+
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Liste des envoies</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      <ion-card >
+          <img src="/assets/img/halal.jpg" alt="" />
+          <ion-card-header>
+            <ion-card-subtitle>Bienvenue à halal transaction.</ion-card-subtitle>
+            <ion-card-title>  مرحبا بكم في المعاملات الحلال
+              
+              </ion-card-title>
+          </ion-card-header>
+      </ion-card>
+  <ion-card class="welcome-card">
+    <div class="ion-padding">
+      <ion-segment  [(ngModel)]="relationship" color="primary" >
+        <ion-segment-button id="choix1"  value="periode">
+          Période
+        </ion-segment-button>
+        <ion-segment-button id="choix2"  value="detail">
+          Détail
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  
+  
+  
+  <form>
+      <div [(ngSwitch)]="relationship"> 
+          <ion-list *ngSwitchCase="'periode'"> 
+ 
+            <ion-item>
+                <ion-label>Date de début</ion-label>
+                <ion-label>Date de fin</ion-label>
+            </ion-item>
+            
+              <ion-item >
+                  <ion-input [(ngModel)]="envoieData.debut"  type="date" name="debut"  class="form-control" ></ion-input>
+ 
+                   <ion-input [(ngModel)]="envoieData.fin"  type="date" name="fin"  class="form-control" ></ion-input>
+              </ion-item>
+              <ion-button expand="block" (click)="infoenvoieadmin()" type="submit" class="btn btn-success">Afficher</ion-button>
+              <ion-card>
+                  <ion-list *ngIf="envoieData">
+                    <ion-item *ngFor="let r of envoieData">
+                      <ion-label>
+                        <h1>* {{r.montant}} fcfa</h1>
+                       <h4>{{r.date|date:"yyyy-MM-dd'T'HH:mm:ss"}}</h4>
+                        <h4>Commission: {{r.comEnv}} fcfa</h4>
+                      </ion-label>
+                    </ion-item> 
+                    <ion-item *ngIf="envoieData">
+                        <ion-label>
+                            <h3>Total commission = fcfa</h3>
+                        </ion-label>
+                    </ion-item>
+                  </ion-list>
+                </ion-card>
+           </ion-list>
+       </div>
+      </form>
+     
+
+   <form> 
+      <div [(ngSwitch)]="relationship"> 
+        <ion-list *ngSwitchCase="'detail'">
+          <ion-card-content>
+            
+            <ion-list *ngIf="envoieData">
+                <ion-item *ngFor="let r of envoieData">
+                  <ion-label>
+                    <p>Montant: {{r.montant}} fcfa</p>
+                    <p>Date: {{r.date|date:"yyyy-MM-dd'T'HH:mm:ss"}}</p>
+                    <p>CNI envoyeur: {{r.envoyeurCni}}</p>
+                    <p>Envoyeur: {{r.envoyeurNomComplet}}</p>
+                    <p>Commission: {{r.comEnv}} fcfa: soit 10% du tarif </p>
+                    <p>Matricule: {{r.multiservice.matricule}} </p>
+                  </ion-label>
+                 
+                </ion-item>
+              </ion-list>
+          </ion-card-content>
+        </ion-list>
+      </div>
+  </form>
+  
+  
+    </ion-card> 
+  </ion-content>
+  

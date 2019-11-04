@@ -42,7 +42,7 @@ export class LoginPage  implements OnInit {
    this.authentService.login(this.loginUserData)
       .subscribe(
         resp => {
-          window.confirm('Connexion réussie');
+          //window.confirm('Connexion réussie');
           //this.router.navigateByUrl('/register');
           console.log(resp);
           const jwt: any = resp.body;
@@ -51,7 +51,7 @@ export class LoginPage  implements OnInit {
             this.router.navigateByUrl('/menu/home');
           }
        else if(this.isAdmin()){
-        this.router.navigateByUrl('/menu/user');
+        this.router.navigateByUrl('/menuadmin/historiqueadmin');
        }
           else{
             this.router.navigateByUrl('/login');
